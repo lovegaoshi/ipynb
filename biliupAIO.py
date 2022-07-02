@@ -95,7 +95,8 @@ except:
 
 cleanup = True#False
 import subprocess
-outdir = '/tf' #os.getcwd()#r'D:\tmp\ytd\hedvika'
+outdir = '/tf/seg' #os.getcwd()#r'D:\tmp\ytd\hedvika'
+os.makedirs(outdir, exist_ok=True)
 from inaseg import extract_music, segment, extract_mah_stuff
 import os
 import argparse
