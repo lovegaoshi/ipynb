@@ -26,7 +26,7 @@ Login as super user
 8. run a screen
 9. 
 
-    sudo docker run --rm -it --mount type=bind,source="/home/swang",target=/tf/out -u=1001:1002 gaoshi/inaseg:gpu python /tf/out/biliupAIO.py --media='https://www.bilibili.com/video/BV18T41137hd'
+    sudo docker run --rm -it --mount type=bind,source="/home/{usrname}",target=/tf/out -u=1001:1002 gaoshi/inaseg:gpu python /tf/out/biliupAIO.py --media='https://www.bilibili.com/video/BV18T41137hd'
 
 note the -u ID needs to be right (or run as root?), otherwise you'll have permission issues
 
