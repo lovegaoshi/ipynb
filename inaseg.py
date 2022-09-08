@@ -4,7 +4,7 @@ import re
 import requests
 import time
 from ShazamAPI import Shazam
-TIMESTAMP_ASSIST_DIR = ''
+from inaConstant import TIMESTAMP_ASSIST_DIR
 import shutil
 from difflib import SequenceMatcher as SM
 from subprocess import Popen, PIPE
@@ -13,13 +13,13 @@ import subprocess
 import os
 import glob
 from threading import Thread
+from inaConstant import load_config, save_config
 import sys
 import logging
 from filelock import FileLock
 lock = FileLock('inaseg.lock')
 
 def save_timestamps(config, mediab, key, val):
-    return
     save = load_config(config)
     if not mediab in save: save[mediab] = {}
     save[mediab][key] = val
@@ -326,7 +326,7 @@ def ytbdl(
     else:
         batch_file = ''
     fname = None
-    cmd = r'yt-dlp {}"{}"{} --cookies D:\PythonLib\ytb_cookie.txt -o "{}\{}"'.format(
+    cmd = r'dl {}"{}"{} --cookies D:\PythonLib\ytb_cookie.txt -o "{}\{}"'.format(
         batch_file, url, soundonly, outdir, out_format)
     if aria is not None:
         cmd += ' --external-downloader aria2c --external-downloader-args "-x {} -s {} -k 1M'.format(
